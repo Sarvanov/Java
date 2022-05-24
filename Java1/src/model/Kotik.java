@@ -56,9 +56,9 @@ public class Kotik {
 
     public void liveAnotherDay() {
         for (var i = 0; i < 24; i++) {
-            System.out.print("Время " + i + ":00 (степень сытости = " + satiety + ") ");
+            System.out.print("пїЅпїЅпїЅпїЅпїЅ " + i + ":00 (пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ = " + satiety + ") ");
             if (satiety <= 0) {
-                System.out.println("Котик " + name + " хочет есть");
+                System.out.println("пїЅпїЅпїЅпїЅпїЅ " + name + " пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ");
                 eat();
             } else {
                 perfomAction();
@@ -85,7 +85,6 @@ public class Kotik {
             case (5):
                 washPaws();
                 break;
-
         }
     }
 
@@ -95,7 +94,7 @@ public class Kotik {
 
     private void eat(String foodName, int satiety) {
         this.satiety += satiety;
-        System.out.println("Котик " + name + " съел " + foodName + " в количестве " + satiety + " штук");
+        System.out.println("пїЅпїЅпїЅпїЅпїЅ " + name + " пїЅпїЅпїЅпїЅ " + foodName + " пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " + satiety + " пїЅпїЅпїЅпїЅ");
     }
 
     private void eat(int satiety) {
@@ -110,23 +109,23 @@ public class Kotik {
     }
 
     private void play() {
-        System.out.println("Котик " + name + " играет");
+        System.out.println("пїЅпїЅпїЅпїЅпїЅ " + name + " пїЅпїЅпїЅпїЅпїЅпїЅ");
     }
 
     private void walkStreet() {
-        System.out.println("Котик " + name + " гуляет на улице");
+        System.out.println("пїЅпїЅпїЅпїЅпїЅ " + name + " пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ");
     }
 
     private void chaseMouse() {
-        System.out.println("Котик " + name + " гонится за мышкой");
+        System.out.println("пїЅпїЅпїЅпїЅпїЅ " + name + " пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ");
     }
 
     private void sleep() {
-        System.out.println("Котик " + name + " спит");
+        System.out.println("пїЅпїЅпїЅпїЅпїЅ " + name + " пїЅпїЅпїЅпїЅ");
     }
 
     private void washPaws() {
-        System.out.println("Котик " + name + " моет лапы");
+        System.out.println("пїЅпїЅпїЅпїЅпїЅ " + name + " пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ");
     }
 
     private int random(int min, int max) {

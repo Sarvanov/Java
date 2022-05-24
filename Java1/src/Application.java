@@ -1,22 +1,21 @@
 import model.Kotik;
-
 public class Application {
 
     public static void main(String[] args) {
-        Kotik kotik = new Kotik("Барсик", "Мур", "Чёрный");
+        Kotik kotik = new Kotik("пїЅпїЅпїЅпїЅпїЅпїЅ", "пїЅпїЅпїЅ", "ЧёпїЅпїЅпїЅпїЅ");
 
         Kotik kotik2 = new Kotik();
-        kotik2.setName("Вася");
-        kotik2.setMeow("Мурр");
-        kotik2.setColor("Белый");
+        kotik2.setName("пїЅпїЅпїЅпїЅ");
+        kotik2.setMeow("пїЅпїЅпїЅпїЅ");
+        kotik2.setColor("пїЅпїЅпїЅпїЅпїЅ");
 
         kotik.liveAnotherDay();
-        System.out.println("Котика зовут " + kotik.getName());
+        System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ " + kotik.getName());
         if (kotik.getMeow().equals(kotik2.getMeow())) {
-            System.out.println("Котики разговаривают одинаково");
+            System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
         } else {
-            System.out.println("Котики не разговаривают одинаково");
+            System.out.println("пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
         }
-        System.out.println("Всего создали " + Kotik.count + " котика");
+        System.out.println("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ " + Kotik.count + " пїЅпїЅпїЅпїЅпїЅпїЅ");
     }
 }
