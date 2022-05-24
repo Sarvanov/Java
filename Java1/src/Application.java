@@ -3,20 +3,20 @@ import model.Kotik;
 public class Application {
 
     public static void main(String[] args) {
-        Kotik kotik = new Kotik("Barsik", "Mur", "Black");
+        Kotik kotik = new Kotik("Барсик", "Мур", "Чёрный");
 
         Kotik kotik2 = new Kotik();
-        kotik2.setName("Vasya");
-        kotik2.setMeow("Murr");
-        kotik2.setColor("White");
+        kotik2.setName("Вася");
+        kotik2.setMeow("Мурр");
+        kotik2.setColor("Белый");
 
         kotik.liveAnotherDay();
-        System.out.println("Kotika zovut " + kotik.getName());
+        System.out.println("Котика зовут " + kotik.getName());
         if (kotik.getMeow().equals(kotik2.getMeow())) {
-            System.out.println("Kotiki razgovarivayut odinakovo");
+            System.out.println("Котики разговаривают одинаково");
         } else {
-            System.out.println("Kotiki ne razgovarivayut odinakovo");
+            System.out.println("Котики не разговаривают одинаково");
         }
-        System.out.println("Vsego sozdali " + Kotik.count + " kotikov");
+        System.out.println("Всего создали " + Kotik.count + " котика");
     }
 }

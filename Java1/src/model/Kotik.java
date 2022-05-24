@@ -56,9 +56,9 @@ public class Kotik {
 
     public void liveAnotherDay() {
         for (var i = 0; i < 24; i++) {
-            System.out.print("Time " + i + ":00 (satiety = " + satiety + ") ");
+            System.out.print("Время " + i + ":00 (степень сытости = " + satiety + ") ");
             if (satiety <= 0) {
-                System.out.println("Kotik " + name + " hochet est'");
+                System.out.println("Котик " + name + " хочет есть");
                 eat();
             } else {
                 perfomAction();
@@ -85,8 +85,7 @@ public class Kotik {
             case (5):
                 washPaws();
                 break;
-            default:
-                break;
+
         }
     }
 
@@ -96,7 +95,7 @@ public class Kotik {
 
     private void eat(String foodName, int satiety) {
         this.satiety += satiety;
-        System.out.println("Kotik " + name + " s'el " + foodName + " v kolichestve " + satiety + " shtuk");
+        System.out.println("Котик " + name + " съел " + foodName + " в количестве " + satiety + " штук");
     }
 
     private void eat(int satiety) {
@@ -111,28 +110,28 @@ public class Kotik {
     }
 
     private void play() {
-        System.out.println("Kotik " + name + " igraet");
+        System.out.println("Котик " + name + " играет");
     }
 
     private void walkStreet() {
-        System.out.println("Kotik " + name + " gulyaet na ulitse");
+        System.out.println("Котик " + name + " гуляет на улице");
     }
 
     private void chaseMouse() {
-        System.out.println("Kotik " + name + " gonitsya za myshkoy");
+        System.out.println("Котик " + name + " гонится за мышкой");
     }
 
     private void sleep() {
-        System.out.println("Kotik " + name + " spit");
+        System.out.println("Котик " + name + " спит");
     }
 
     private void washPaws() {
-        System.out.println("Kotik " + name + " moet lapy");
+        System.out.println("Котик " + name + " моет лапы");
     }
 
     private int random(int min, int max) {
         max -= min;
-        return (int) (Math.random() * max + min);
+        return (int) (Math.random() * ++max + min);
     }
 
     private String randomFoodName() {
@@ -141,7 +140,7 @@ public class Kotik {
             case (1):
                 return "Whiskas";
             case (2):
-                return "Fish";
+                return "Purina";
             case (3):
                 return "Kitekat";
             case (4):
