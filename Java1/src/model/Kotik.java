@@ -56,9 +56,9 @@ public class Kotik {
 
     public void liveAnotherDay() {
         for (var i = 0; i < 24; i++) {
-            System.out.print("����� " + i + ":00 (������� ������� = " + satiety + ") ");
+            System.out.print("Время " + i + ":00 (степень сытости = " + satiety + ") ");
             if (satiety <= 0) {
-                System.out.println("����� " + name + " ����� ����");
+                System.out.println("Котик " + name + " хочет есть");
                 eat();
             } else {
                 perfomAction();
@@ -94,7 +94,7 @@ public class Kotik {
 
     private void eat(String foodName, int satiety) {
         this.satiety += satiety;
-        System.out.println("����� " + name + " ���� " + foodName + " � ���������� " + satiety + " ����");
+        System.out.println("Котик " + name + " съел " + foodName + " в количестве " + satiety + " штук");
     }
 
     private void eat(int satiety) {
@@ -109,23 +109,23 @@ public class Kotik {
     }
 
     private void play() {
-        System.out.println("����� " + name + " ������");
+        System.out.println("Котик " + name + " играет");
     }
 
     private void walkStreet() {
-        System.out.println("����� " + name + " ������ �� �����");
+        System.out.println("Котик " + name + " гуляет на улице");
     }
 
     private void chaseMouse() {
-        System.out.println("����� " + name + " ������� �� ������");
+        System.out.println("Котик " + name + " гоняется за мышкой");
     }
 
     private void sleep() {
-        System.out.println("����� " + name + " ����");
+        System.out.println("Котик " + name + " спит");
     }
 
     private void washPaws() {
-        System.out.println("����� " + name + " ���� ����");
+        System.out.println("Котик " + name + " моет лапы");
     }
 
     private int random(int min, int max) {
