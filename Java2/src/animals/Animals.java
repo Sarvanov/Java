@@ -2,13 +2,10 @@ package animals;
 
 import food.*;
 
-
 public abstract class Animals {
-    public void eat(Food food) {
+    public Animals(String name) {
 
     }
 
-    public String voice(){
-        return voice();
-    }
+    public abstract void eat(Food food);
 }

@@ -1,24 +1,21 @@
 package animals;
 
 import food.*;
-
+import interfaces.Run;
+import interfaces.Voice;
 
 public class Caw extends Herbivore implements Run, Voice {
+    public Caw(String name) {
+        super(name);
+    }
+
     @Override
     public void run(){
         System.out.println("Корова бегает");
     }
     @Override
     public String voice(){
-        String voice = "Корова мычит";
-                return voice;
+        return "Корова мычит";
     }
 
-    @Override
-    public void eat(Food food) {
-        if (food instanceof Grass){
-            System.out.println("Корова ест траву");
-        } else System.out.println("Корова не ест мясо");
-
-    }
 }

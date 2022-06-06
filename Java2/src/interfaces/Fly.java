@@ -1,4 +1,4 @@
-package animals;
+package interfaces;
 
 public interface Fly {
     void fly();

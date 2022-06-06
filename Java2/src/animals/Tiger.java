@@ -2,8 +2,14 @@ package animals;
 
 import food.Food;
 import food.Meat;
+import interfaces.Run;
+import interfaces.Voice;
 
-public class Tiger extends Carnivorous implements Run, Voice{
+public class Tiger extends Carnivorous implements Run, Voice {
+    public Tiger(String name) {
+        super(name);
+    }
+
     @Override
     public void run() {
         System.out.println("Тигр бегает");
@@ -11,13 +17,7 @@ public class Tiger extends Carnivorous implements Run, Voice{
 
     @Override
     public String voice() {
-        String voice = "Тигр рычит";
-        return voice;
+        return "Тигр рычит";
     }
-    public void eat(Food food) {
-        if (food instanceof Meat){
-            System.out.println("Тигр ест мясо");
-        } else System.out.println("Тигр не травоядное животное");
 
-    }
 }

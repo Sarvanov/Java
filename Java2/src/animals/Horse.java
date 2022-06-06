@@ -2,8 +2,14 @@ package animals;
 
 import food.Food;
 import food.Grass;
+import interfaces.Run;
+import interfaces.Voice;
 
 public class Horse extends Herbivore implements Run, Voice {
+    public Horse(String name) {
+        super(name);
+    }
+
     @Override
     public void run() {
         System.out.println("Лошадь бегает");
@@ -11,13 +17,7 @@ public class Horse extends Herbivore implements Run, Voice {
 
     @Override
     public String voice() {
-        String voice = "Лошадь говорит иго-го";
-        return voice;
+        return "Лошадь говорит иго-го";
     }
-    public void eat(Food food) {
-        if (food instanceof Grass){
-            System.out.println("Лошадь ест траву");
-        } else System.out.println("Лошадь не ест мясо");
 
-    }
 }

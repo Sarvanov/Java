@@ -1,29 +1,24 @@
 package animals;
 
-import food.Food;
-import food.Grass;
+import food.*;
+import interfaces.*;
 
-public class Duck extends Herbivore implements Fly, Swim, Voice{
+public class Duck extends Herbivore implements Fly, Swim, Voice {
+    public Duck(String name) {
+        super(name);
+    }
+
     @Override
     public void fly() {
         System.out.println("Утка летает");
     }
     @Override
-    public String swim(){
-        String swim = "Утка плавает";
-        System.out.println(swim);
-        return swim;
+    public void swim(){
+        System.out.println("Утка плавает");
     }
-
     @Override
     public String voice() {
-        String voice = "Утка крякает";
-        return voice;
+        return "Утка крякает";
     }
-    public void eat(Food food) {
-        if (food instanceof Grass){
-            System.out.println("Утка ест траву");
-        } else System.out.println("Утка не ест мясо");
 
-    }
 }
