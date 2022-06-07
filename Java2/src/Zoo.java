@@ -1,18 +1,15 @@
 import animals.*;
 import food.*;
-import interfaces.Swim;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+import interfaces.*;
 
 public class Zoo {
     public static void main(String[] args) {
-        Caw caw = new Caw("Корова");
-        Duck duck = new Duck("Утка");
-        Fish fish = new Fish("Рыба щука");
-        Horse horse = new Horse("Лошадь");
-        Tiger tiger = new Tiger("Тигр");
-        Wolf wolf = new Wolf("Волк");
+        Caw caw = new Caw();
+        Duck duck = new Duck();
+        Fish fish = new Fish();
+        Horse horse = new Horse();
+        Tiger tiger = new Tiger();
+        Wolf wolf = new Wolf();
         Worker worker = new Worker();
 
         Food food = new Food();
@@ -61,24 +58,11 @@ public class Zoo {
         worker.getVoice(tiger);
         worker.getVoice(wolf);
 
-//        String[] swim = new String[]{Animals};
-//
-//        for (int i = 0; i < swim.length; i++){
-//            System.out.println(swim[i]);}
-
-//        String[] pond = new String[2];
-//        pond[0] = "duck";
-//        pond[1] = "fish";
-//        for (int i = 0; i < 2 ; i++);{
-//            System.out.println(pond[0][1]);
-//        }
-
-
-   /*     String [] pond = new String[] {duck.swim(), fish.swim()};
-
+        Swim[] pond = {duck, fish};
         for (int i = 0; i < pond.length; i++) {
-            System.out.println(pond[i]);
-        }*/
+            Swim animal = pond[i];
+            animal.swim();
+        }
 
     }
 }

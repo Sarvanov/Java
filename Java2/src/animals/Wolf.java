@@ -1,14 +1,8 @@
 package animals;
 
-import food.Food;
-import food.Meat;
-import interfaces.Run;
-import interfaces.Voice;
+import interfaces.*;
 
 public class Wolf extends Carnivorous implements Run, Voice {
-    public Wolf(String name) {
-        super(name);
-    }
 
     @Override
     public void run() {

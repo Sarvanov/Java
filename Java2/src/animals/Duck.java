@@ -1,12 +1,8 @@
 package animals;
 
-import food.*;
 import interfaces.*;
 
 public class Duck extends Herbivore implements Fly, Swim, Voice {
-    public Duck(String name) {
-        super(name);
-    }
 
     @Override
     public void fly() {

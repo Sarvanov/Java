@@ -1,14 +1,8 @@
 package animals;
 
-import food.Food;
-import food.Meat;
-import interfaces.Run;
-import interfaces.Voice;
+import interfaces.*;
 
 public class Tiger extends Carnivorous implements Run, Voice {
-    public Tiger(String name) {
-        super(name);
-    }
 
     @Override
     public void run() {

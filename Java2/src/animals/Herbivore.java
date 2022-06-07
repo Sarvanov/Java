@@ -1,13 +1,8 @@
 package animals;
 
-import food.Food;
-import food.Grass;
-import food.Meat;
+import food.*;
 
 public class Herbivore extends Animals {
-    public Herbivore(String name) {
-        super(name);
-    }
 
     public void eat (Food food){
         if (food instanceof Grass){

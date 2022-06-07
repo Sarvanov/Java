@@ -1,14 +1,8 @@
 package animals;
 
-import food.Food;
-import food.Grass;
-import interfaces.Run;
-import interfaces.Voice;
+import interfaces.*;
 
 public class Horse extends Herbivore implements Run, Voice {
-    public Horse(String name) {
-        super(name);
-    }
 
     @Override
     public void run() {
