@@ -1,6 +1,6 @@
 package animals;
 
-import interfaces.Swim;
+import interfaces.*;
 
 public class Fish extends Carnivorous implements Swim {
 
