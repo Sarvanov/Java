@@ -8,5 +8,4 @@ public class Fish extends Carnivorous implements Swim {
     public void swim() {
         System.out.println("Рыба плавает");
     }
-
 }

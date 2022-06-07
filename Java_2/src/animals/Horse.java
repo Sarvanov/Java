@@ -13,5 +13,4 @@ public class Horse extends Herbivore implements Run, Voice {
     public String voice() {
         return "Лошадь говорит иго-го";
     }
-
 }

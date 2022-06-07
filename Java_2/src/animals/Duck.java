@@ -16,5 +16,4 @@ public class Duck extends Herbivore implements Fly, Swim, Voice {
     public String voice() {
         return "Утка крякает";
     }
-
 }

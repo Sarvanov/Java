@@ -13,5 +13,4 @@ public class Wolf extends Carnivorous implements Run, Voice {
     public String voice() {
         return "Волк скулит";
     }
-
 }

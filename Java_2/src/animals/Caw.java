@@ -12,5 +12,4 @@ public class Caw extends Herbivore implements Run, Voice {
     public String voice(){
         return "Корова мычит";
     }
-
 }
