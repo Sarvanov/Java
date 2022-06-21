@@ -1,8 +1,14 @@
 package animals;
 
+import aviary.Size;
+import food.Food;
 import interfaces.*;
 
 public class Duck extends Herbivore implements Fly, Swim, Voice {
+
+    public Duck(String name) {
+        super(name);
+    }
 
     @Override
     public void fly() {
@@ -17,4 +23,13 @@ public class Duck extends Herbivore implements Fly, Swim, Voice {
         return "Утка крякает";
     }
 
-}
+    @Override
+    public String eat(Food food) {
+
+        return null;
+    }
+    public Size getSize() {
+        return Size.SECOND;
+    }
+
+ }
