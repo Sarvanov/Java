@@ -5,8 +5,8 @@ import interfaces.*;
 
 public class Tiger extends Carnivorous implements Run, Voice {
 
-    public Tiger(String name) {
-        super(name);
+    public Tiger(String name, Size size) {
+        super(name, size);
     }
 
     @Override
@@ -17,8 +17,5 @@ public class Tiger extends Carnivorous implements Run, Voice {
     @Override
     public String voice() {
         return "Тигр рычит";
-    }
-    public Size getSize() {
-        return Size.THIRD;
     }
 }

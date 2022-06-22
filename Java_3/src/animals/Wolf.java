@@ -5,8 +5,8 @@ import interfaces.*;
 
 public class Wolf extends Carnivorous implements Run, Voice {
 
-    public Wolf(String name) {
-        super(name);
+    public Wolf(String name, Size size) {
+        super(name, size);
     }
 
     @Override
@@ -17,8 +17,5 @@ public class Wolf extends Carnivorous implements Run, Voice {
     @Override
     public String voice() {
         return "Волк скулит";
-    }
-    public Size getSize() {
-        return Size.THIRD;
     }
 }

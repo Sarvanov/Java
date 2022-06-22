@@ -5,8 +5,8 @@ import interfaces.*;
 
 public class Horse extends Herbivore implements Run, Voice {
 
-    public Horse(String name) {
-        super(name);
+    public Horse(String name, Size size) {
+        super(name, size);
     }
 
     @Override
@@ -17,8 +17,5 @@ public class Horse extends Herbivore implements Run, Voice {
     @Override
     public String voice() {
         return "Лошадь говорит иго-го";
-    }
-    public Size getSize() {
-        return Size.FOURTH;
     }
 }

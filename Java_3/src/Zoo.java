@@ -4,19 +4,17 @@ import aviary.Size;
 import food.Food;
 import food.Grass;
 import food.Meat;
+import food.WrongFoodException;
 import interfaces.Swim;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Zoo {
-    public static void main(String[] args) {
-        Caw caw = new Caw("Буренка");
-        Duck duck = new Duck("Дональд Дак");
-        Fish fish = new Fish("Щука");
-        Horse horse = new Horse("Пегас");
-        Tiger tiger = new Tiger("Полосатик");
-        Wolf wolf = new Wolf("Серый");
+    public static void main(String[] args) throws WrongFoodException {
+        Caw caw = new Caw("Буренка", Size.EXTRALARGE);
+        Duck duck = new Duck("Дональд Дак", Size.MEDIUM);
+        Fish fish = new Fish("Щука", Size.SMALL);
+        Horse horse = new Horse("Пегас", Size.EXTRALARGE);
+        Tiger tiger = new Tiger("Полосатик", Size.LARGE);
+        Wolf wolf = new Wolf("Серый", Size.LARGE);
         Worker worker = new Worker();
 
         Food food = new Food();
@@ -46,18 +44,18 @@ public class Zoo {
         wolf.voice();
         System.out.println(wolf.voice());
 
-//        worker.feed(caw, grass);
-//        worker.feed(caw, meat);
-//        worker.feed(duck, grass);
-//        worker.feed(duck, meat);
-//        worker.feed(fish, grass);
-//        worker.feed(fish, meat);
-//        worker.feed(horse, grass);
-//        worker.feed(horse, meat);
-//        worker.feed(tiger, grass);
-//        worker.feed(tiger, meat);
-//        worker.feed(wolf, grass);
-//        worker.feed(wolf, meat);
+        worker.feed(caw, grass);
+        worker.feed(caw, meat);
+        worker.feed(duck, grass);
+        worker.feed(duck, meat);
+        worker.feed(fish, grass);
+        worker.feed(fish, meat);
+        worker.feed(horse, grass);
+        worker.feed(horse, meat);
+        worker.feed(tiger, grass);
+        worker.feed(tiger, meat);
+        worker.feed(wolf, grass);
+        worker.feed(wolf, meat);
 
         worker.getVoice(caw);
         worker.getVoice(duck);
@@ -70,45 +68,24 @@ public class Zoo {
             Swim animal = pond[i];
             animal.swim();
         }
-        Aviary<Carnivorous> carnivorousAviary = new Aviary<>();
-        Aviary<Herbivore> herbivoreAviary = new Aviary<>();
+        Aviary<Carnivorous> carnivorousAviary = new Aviary<>(Size.EXTRALARGE);
+        Aviary<Herbivore> herbivoreAviary = new Aviary<>(Size.LARGE);
 
-//        Map<Integer, Carnivorous> carnivorousMap = new HashMap<>();
-//        carnivorousMap.put(1, new Carnivorous("Щука"));
-//        carnivorousMap.put(2, new Carnivorous("Полосатик"));
-//        carnivorousMap.put(3, new Carnivorous("Серый"));
-//        System.out.println(carnivorousMap);
-//        System.out.println(carnivorousMap.get(1));
-//        carnivorousMap.remove(1);
-//        System.out.println(carnivorousMap);
-//
-//        Map<Integer, Herbivore> herbivoreMap = new HashMap<>();
-//        herbivoreMap.put(1, new Herbivore("Буренка"));
-//        herbivoreMap.put(2, new Herbivore("Дональд Дак"));
-//        herbivoreMap.put(3, new Herbivore("Пегас"));
-//        System.out.println(herbivoreMap);
-//        herbivoreMap.remove(2);
-//        System.out.println(herbivoreMap);
+        carnivorousAviary.addAnimal(fish);
+        carnivorousAviary.addAnimal(tiger);
+        carnivorousAviary.addAnimal(wolf);
+        System.out.println(carnivorousAviary);
+        carnivorousAviary.getAnimal("Щука");
+        carnivorousAviary.removeAnimal("Полосатик");
 
-        Map<Integer, String> carnivorousMap = new HashMap<>();
-        carnivorousMap.put(1, "Щука");
-        carnivorousMap.put(2, "Полосатик");
-        carnivorousMap.put(3, "Серый");
-        System.out.println(carnivorousMap);
-        System.out.println(carnivorousMap.get(1));
-        carnivorousMap.remove(1);
-        System.out.println(carnivorousMap);
+        herbivoreAviary.addAnimal(caw);
+        herbivoreAviary.addAnimal(duck);
+        herbivoreAviary.addAnimal(horse);
+        System.out.println(herbivoreAviary);
+        herbivoreAviary.getAnimal("Дональд Дак");
+        herbivoreAviary.removeAnimal("Буренка");
 
-        Map<Integer, String> herbivoreMap = new HashMap<>();
-        herbivoreMap.put(1, "Буренка");
-        herbivoreMap.put(2, "Дональд Дак");
-        herbivoreMap.put(3, "Пегас");
-        System.out.println(herbivoreMap);
-        herbivoreMap.remove(2);
-        System.out.println(herbivoreMap);
-
-        System.out.println(caw.getSize().equals(Size.THIRD)); // false
-        System.out.println(caw.getSize().equals(Size.FOURTH)); // true
         System.out.println(fish.getName());
+        System.out.println(horse.getSize());
     }
 }

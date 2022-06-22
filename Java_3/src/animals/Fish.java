@@ -5,15 +5,12 @@ import interfaces.Swim;
 
 public class Fish extends Carnivorous implements Swim {
 
-    public Fish(String name) {
-        super(name);
+    public Fish(String name, Size size) {
+        super(name, size);
     }
 
     @Override
     public void swim() {
         System.out.println("Рыба плавает");
-    }
-    public Size getSize() {
-        return Size.FIRST;
     }
 }

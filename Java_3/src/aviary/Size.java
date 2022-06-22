@@ -1,8 +1,8 @@
 package aviary;
 
 public enum Size {
-    FIRST,
-    SECOND,
-    THIRD,
-    FOURTH
+    SMALL,
+    MEDIUM,
+    LARGE,
+    EXTRALARGE;
 }

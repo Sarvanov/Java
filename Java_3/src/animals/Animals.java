@@ -8,12 +8,22 @@ import java.util.Objects;
 
 public abstract class Animals {
 
-    public abstract String eat(Food food) throws WrongFoodException;
+    public abstract void eat(Food food) throws WrongFoodException;
 
     protected String name;
+    protected Size size;
 
-    public Animals(String name) {
+    public Animals(String name, Size size) {
         this.name = name;
+        this.size = size;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
     }
 
     public String getName() {
@@ -29,13 +39,11 @@ public abstract class Animals {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Animals animals = (Animals) o;
-        return Objects.equals(name, animals.name);
+        return Objects.equals(name, animals.name) && size == animals.size;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(name, size);
     }
-
-    public abstract Size getSize();
 }
