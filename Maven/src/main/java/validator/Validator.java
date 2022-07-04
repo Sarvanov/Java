@@ -13,7 +13,7 @@ public class Validator {
      * @throws BadIntValue проверяет строку на наличие целого числа
      */
     public static String validateInputInt(String input) throws BadIntValue {
-        if (input.matches("[0-9]")) {
+        if (input.matches("^ [0-9] * $")) {
             return input;
         } else {
             throw new BadIntValue("Вы ввели не целое число. Введите целое число");
