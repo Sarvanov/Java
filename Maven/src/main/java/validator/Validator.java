@@ -7,6 +7,7 @@ import exception.BadIntValue;
  * Класс для проверки на валидацию
  */
 public class Validator {
+
     /**
      * @param num проверяемая строка
      * @return возвращает строку в случае прохождения проверки
@@ -19,6 +20,7 @@ public class Validator {
             throw new BadIntValue("Вы ввели не целое число. Введите целое число");
         }
     }
+
     /**
      * @param inputAction проверяемая строка
      * @return возвращает строку в случае прохождения проверки
