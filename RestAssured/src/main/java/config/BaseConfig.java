@@ -5,7 +5,7 @@ import org.aeonbits.owner.Config;
 /**
  * Интерфейс с основной конфигурацией проекта
  */
-@Config.Sources({"classpath:config.properties"})
+@Config.Sources({"classpath:config/config.properties"})
 public interface BaseConfig extends Config {
 
     /**

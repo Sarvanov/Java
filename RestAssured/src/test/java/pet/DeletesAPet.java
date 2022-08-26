@@ -1,4 +1,7 @@
+package pet;
+
 import base.BaseTest;
+import dto.DeletesAPetModel;
 import dto.PetModel;
 import dto.response.ErrorResponse;
 import io.qameta.allure.Epic;
@@ -9,21 +12,20 @@ import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.SoftAssertions.assertSoftly;
-import static utils.ExpectedObjectBuilder.getUnknownErrorResponse;
 import static utils.TestDataHelper.*;
 import static utils.TestObjectBuilder.getAddNewPetModel;
 
 /**
- * Тест-сьют метода PUT /pet/updatePet
+ * Тест-сьют метода DELETE /pet/deletePet
  */
 @Epic("Pet контроллер")
-@Feature("Update an existing pet")
-public class UpdateAnExistingPet extends BaseTest {
+@Feature("Deletes a pet")
+public class DeletesAPet extends BaseTest {
 
     @Test
-    @DisplayName("Update an existing pet. Positive case")
-    @Story("Обновление существующего питомца. Позитивный сценарий")
-    public void testUpdateAnExistingPetPositive(){
+    @DisplayName("Deletes a pet. Positive case")
+    @Story("Удаление питомца. Позитивный сценарий")
+    public void testDeletesAPetPositive() {
         step("Создание тела запроса с валидным ID", () -> {
             request = getAddNewPetModel(VALID_PET_ID);
         });
@@ -33,20 +35,16 @@ public class UpdateAnExistingPet extends BaseTest {
         });
 
         step("Выполнение запроса GET /pet", () -> {
-            responseWrapper = steps.getPetById(VALID_PET_ID);
+            responseWrapper = steps.getPetById(request.getId());
         });
 
-        step("Создание тела запроса с валидным ID", () -> {
-            request = getAddNewPetModel(VALID_PET_ID);
-        });
-
-        step("Выполнение запроса PUT /pet", () -> {
-            responseWrapper = steps.updateAnExistingPet(request);
+        step("Выполнение запроса DELETE /pet", () -> {
+            responseWrapper = steps.deletesAPetById(VALID_PET_ID);
         });
 
         step("Проверка результата", () -> {
             int statusCode = responseWrapper.getStatusCode();
-            PetModel response = responseWrapper.as(PetModel.class);
+            DeletesAPetModel response = responseWrapper.as(DeletesAPetModel.class);
 
             assertSoftly(
                     softAssertions -> {
@@ -57,16 +55,16 @@ public class UpdateAnExistingPet extends BaseTest {
                         softAssertions
                                 .assertThat(response)
                                 .withFailMessage("Response body doesn't match")
-                                .isEqualTo(request);
+                                .isNotEqualTo(request);
                     }
             );
         });
     }
 
     @Test
-    @DisplayName("Update an existing pet. Negative case")
-    @Story("Обновление существующего питомца. Негативный сценарий")
-    public void testUpdateAnExistingPetNegative(){
+    @DisplayName("Deletes a pet. Negative case")
+    @Story("Удаление питомца. Негативный сценарий")
+    public void testDeletesAPetNegative() {
         step("Создание тела запроса с невалидным ID", () -> {
             request = getAddNewPetModel(NOT_VALID_PET_ID);
         });
@@ -79,12 +77,8 @@ public class UpdateAnExistingPet extends BaseTest {
             responseWrapper = steps.getPetById(NOT_VALID_PET_ID);
         });
 
-        step("Создание тела запроса с невалидным ID", () -> {
-            request = getAddNewPetModel(NOT_VALID_PET_ID);
-        });
-
-        step("Выполнение запроса PUT /pet", () -> {
-            responseWrapper = steps.updateAnExistingPet(request);
+        step("Выполнение запроса DELETE /pet", () -> {
+            responseWrapper = steps.deletesAPetById(NOT_VALID_PET_ID);
         });
 
         step("Проверка результата", () -> {
@@ -96,11 +90,11 @@ public class UpdateAnExistingPet extends BaseTest {
                         softAssertions
                                 .assertThat(statusCode)
                                 .withFailMessage("Status code doesn't match")
-                                .isEqualTo(STATUS_CODE_ERROR_500);
+                                .isEqualTo(STATUS_CODE_ERROR_404);
                         softAssertions
                                 .assertThat(error)
                                 .withFailMessage("Error body doesn't match")
-                                .isEqualTo(getUnknownErrorResponse());
+                                .isNotEqualTo(request);
                     }
             );
         });

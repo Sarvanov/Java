@@ -24,11 +24,6 @@ public class Steps {
     private static final String PET_PATH = "pet";
 
     /**
-     * Часть URL для запросов /getById
-     */
-    private static final String FIND_BY_ID_PATH = "pet/";
-
-    /**
      * Параметр id для get запроса getById
      */
     private static String ID_PARAMETER = "id";
@@ -67,7 +62,7 @@ public class Steps {
     public ResponseWrapper getPetById(String id) {
         return new ResponseWrapper(given(requestSpecification)
                 .when()
-                .basePath(FIND_BY_ID_PATH)
+                .basePath(PET_PATH + "/")
                 .get(id)
                 .andReturn());
     }
@@ -76,7 +71,7 @@ public class Steps {
         return new ResponseWrapper(given(requestSpecification)
                 .when()
 //                .body(request)
-                .basePath(FIND_BY_ID_PATH)
+                .basePath(PET_PATH + "/")
                 .delete(request)
                 .andReturn());
     }

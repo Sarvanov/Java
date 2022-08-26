@@ -1,3 +1,5 @@
+package pet;
+
 import base.BaseTest;
 import dto.PetModel;
 import dto.response.ErrorResponse;
@@ -14,16 +16,16 @@ import static utils.TestDataHelper.*;
 import static utils.TestObjectBuilder.getAddNewPetModel;
 
 /**
- * Тест-сьют для метода Post /pet
+ * Тест-сьют метода GET /pet/getPetById
  */
 @Epic("Pet контроллер")
-@Feature("Add new pet to store")
-public class AddNewPetToStore extends BaseTest {
+@Feature("Find pet by ID")
+public class FindPetById extends BaseTest {
 
     @Test
-    @DisplayName("Add new pet to store. Positive case")
-    @Story("Добавление нового питомца, позитивный сценарий")
-    public void testAddNewPetToStorePositive() {
+    @DisplayName("Find pet by ID. Positive case")
+    @Story("Поиск питомца по ID. Позитивный сценарий")
+    public void testFindPetByIdPositive() {
         step("Создание тела запроса с валидным ID", () -> {
             request = getAddNewPetModel(VALID_PET_ID);
         });
@@ -56,15 +58,19 @@ public class AddNewPetToStore extends BaseTest {
     }
 
     @Test
-    @DisplayName("Add new pet to store. Negative case with not valid ID")
-    @Story("Добавление нового питомца с невалидным ID, негативный сценарий")
-    public void testAddNewPetToStoreNegative() {
+    @DisplayName("Find pet by ID. Negative case")
+    @Story("Поиск питомца по ID. Негативный сценарий")
+    public void testFindPetByIdNegative() {
         step("Создание тела запроса с невалидным ID", () -> {
             request = getAddNewPetModel(NOT_VALID_PET_ID);
         });
 
         step("Выполнение запроса POST /pet", () -> {
             responseWrapper = steps.createNewPetToStore(request);
+        });
+
+        step("Выполнение запроса GET /pet", () -> {
+            responseWrapper = steps.getPetById(NOT_VALID_PET_ID);
         });
 
         step("Проверка результата", () -> {
@@ -76,11 +82,11 @@ public class AddNewPetToStore extends BaseTest {
                         softAssertions
                                 .assertThat(statusCode)
                                 .withFailMessage("Status code doesn't match")
-                                .isEqualTo(STATUS_CODE_ERROR_500);
+                                .isEqualTo(STATUS_CODE_ERROR_404);
                         softAssertions
                                 .assertThat(error)
                                 .withFailMessage("Error body doesn't match")
-                                .isEqualTo(getUnknownErrorResponse());
+                                .isNotEqualTo(request);
                     }
             );
         });
