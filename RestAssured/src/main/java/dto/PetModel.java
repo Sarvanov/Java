@@ -6,6 +6,9 @@ import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
+/**
+ * Создание модели PetModel
+ */
 @Data
 @Builder
 @EqualsAndHashCode(exclude = {"id"})

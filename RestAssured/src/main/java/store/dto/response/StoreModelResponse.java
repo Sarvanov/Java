@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Создание модели
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

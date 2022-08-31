@@ -3,6 +3,9 @@ package store.dto.request;
 import lombok.Builder;
 import lombok.Data;
 
+/**
+ * Класс для запроса по удалению purchase order
+ */
 @Data
 @Builder(buildMethodName = "please", setterPrefix = "with")
 public class DeletePurchaseOrderByIdRequest {

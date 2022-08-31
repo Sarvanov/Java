@@ -3,6 +3,9 @@ package dto;
 import lombok.Builder;
 import lombok.Data;
 
+/**
+ * Создание модели DeletesAPetModel
+ */
 @Data
 @Builder
 public class DeletesAPetModel {

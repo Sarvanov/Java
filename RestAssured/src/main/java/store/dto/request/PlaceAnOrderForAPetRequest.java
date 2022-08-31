@@ -3,6 +3,9 @@ package store.dto.request;
 import lombok.Builder;
 import lombok.Data;
 
+/**
+ * Класс для запроса по добавлению purchase order в store
+ */
 @Data
 @Builder(buildMethodName = "please", setterPrefix = "with")
 public class PlaceAnOrderForAPetRequest {
@@ -24,5 +27,4 @@ public class PlaceAnOrderForAPetRequest {
 
     @Builder.Default
     private final boolean complete = true;
-
 }

@@ -5,12 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Создание модели
+ * Создание модели для негативного теста
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DeleteModelResponse {
+public class StoreNotFoundResponse {
 
     private int code;
     private String type;

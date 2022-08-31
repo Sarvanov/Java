@@ -1,5 +1,5 @@
 plugins {
-    id "io.qameta.allure" version "2.10.0"
+//    id 'io.qameta.allure' version '2.10.0'
     id 'java'
 }
 
@@ -15,22 +15,22 @@ compileTestJava.options.encoding = 'UTF-8'
 compileJava.options.encoding = 'windows-1251'
 compileTestJava.options.encoding = 'windows-1251'
 
-
-allure {
-    version.set("2.18.1")
-}
+//allure {
+//    version.set("2.17.3")
+//}
 
 dependencies {
-    // JUnit аннотации
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.0'
+    //JUnit аннотации
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
 
     //RestAssure аннотации
     implementation 'io.rest-assured:rest-assured:5.1.1'
-    implementation "io.rest-assured:rest-assured-all:5.1.1"
+    testImplementation 'io.rest-assured:rest-assured-all:5.1.1'
 
     //Allure аннотации
-    implementation'io.qameta.allure:allure-rest-assured:2.18.1'
-    testImplementation 'io.qameta.allure:allure-junit5:2.18.1'
+    implementation 'io.qameta.allure:allure-rest-assured:2.17.3'
+    testImplementation 'io.qameta.allure:allure-junit5:2.17.3'
 
     //AssertJ аннотации
     testImplementation 'org.assertj:assertj-core:3.23.1'
@@ -49,6 +49,10 @@ dependencies {
 
     //Jackson аннотации
     implementation'org.openapitools:jackson-databind-nullable:0.2.3'
+
+    //TestNG аннотации
+    testImplementation 'org.testng:testng:7.6.1'
+    testRuntimeOnly 'io.qameta.allure:allure-testng:2.17.3'
 }
 
 test {

@@ -5,12 +5,13 @@ import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import lombok.RequiredArgsConstructor;
-import store.dto.request.DeletePurchaseOrderByIdRequest;
-import store.dto.request.FindPurchaseOrderByIdRequest;
 import store.dto.request.PlaceAnOrderForAPetRequest;
 
 import static io.restassured.RestAssured.given;
 
+/**
+ * Создание класса StoreClient
+ */
 @RequiredArgsConstructor
 public class StoreClient {
 
@@ -25,24 +26,20 @@ public class StoreClient {
                 .post(EndPoints.CONTEXT_PATH)
                 .then();
     }
-
     @Step("Find purchase order by ID")
-    public ValidatableResponse findPurchaseOrder(final FindPurchaseOrderByIdRequest bodyForFindPurchaseOrderById){
+    public ValidatableResponse findPurchaseOrder(final int id){
         return given()
                 .spec(requestSpecification)
-                .body(bodyForFindPurchaseOrderById)
                 .when()
-                .get(EndPoints.CONTEXT_PATH)
+                .get(EndPoints.CONTEXT_PATH + "/" + id)
                 .then();
     }
-
     @Step("Delete purchase order by ID")
-    public ValidatableResponse deletePurchaseOrder(final DeletePurchaseOrderByIdRequest bodyForDeletePurchaseOrderById){
+    public ValidatableResponse deletePurchaseOrder(final int id){
         return given()
                 .spec(requestSpecification)
-                .body(bodyForDeletePurchaseOrderById)
                 .when()
-                .get(EndPoints.CONTEXT_PATH)
+                .delete(EndPoints.CONTEXT_PATH + "/" + id)
                 .then();
     }
 }
